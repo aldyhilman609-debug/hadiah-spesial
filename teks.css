@@ -1,0 +1,93 @@
+.video-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.vid {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.typing-text {
+  position: absolute;
+  top: 200px;
+  left: 25%;
+  transform: translateX(-50%);
+  font-size: 2em;
+  color: palevioletred;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid white;
+  width: 0;
+  animation: typing 3s steps(20, end) forwards, blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 14ch; } /* Adjust based on text length */
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  width: calc(200%); /* Double the width for looping */
+  animation: scroll-left 20s linear infinite;
+}
+.carousel-trak {
+  display: flex;
+  width: calc(200%); /* Double the width for looping */
+  animation: scroll-right 20s linear infinite;
+}
+
+.carousel-trak img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.carousel-track img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.body {
+    background-color: pink;
+    color: white;
+}
