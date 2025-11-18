@@ -27,7 +27,21 @@
       animation: turun 6s linear infinite;
       box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
     }
-
+   button {
+      background: lightblue;
+      color: black;
+    border-radius: 12px;
+      padding: 15px 30px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: lightcoral;
+      color: #000;
+      
+    }
+  
     .foto:nth-child(1) { animation-delay: 0s; }
     .foto:nth-child(2) { animation-delay: 2s; }
     .foto:nth-child(3) { animation-delay: 4s; }
@@ -99,6 +113,10 @@
     <div class="confetti" style="left:40%; background:#ffd700;"></div>
     <div class="confetti" style="left:60%; background:#87cefa;"></div>
     <div class="confetti" style="left:80%; background:#98fb98;"></div>
+   <button id="playBtn">▶ Play Lagu</button>
+
+  <!-- Audio file -->
+  <audio id="lagu" src="https://files.catbox.moe/rhrnvs.mp3"></audio>
   </div>
 
   <script>
@@ -119,6 +137,13 @@
 
       container.appendChild(emoji);
     }
+      
+    const btn = document.getElementById('playBtn');
+    const audio = document.getElementById('lagu');
+
+    btn.addEventListener('click', () => {
+      audio.play();
+    });
   </script>
 </body>
 </html>
