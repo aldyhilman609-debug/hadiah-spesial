@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>hadiah dari aldy</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #fce4ec; /* pink pastel */
+      font-family: "Comic Sans MS", cursive;
+    }
+
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    
+    .foto {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      border-radius: 16px;
+      animation: turun 6s linear infinite;
+      box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .foto:nth-child(1) { animation-delay: 0s; }
+    .foto:nth-child(2) { animation-delay: 2s; }
+    .foto:nth-child(3) { animation-delay: 4s; }
+
+    @keyframes turun {
+      from { top: -150px; }
+      to   { top: 100vh; }
+    }
+
+    
+    .goyang {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 32px;
+      font-weight: bold;
+      color: #e91e63; 
+      animation: shake 1s infinite;
+    }
+
+    @keyframes shake {
+      0%   { transform: translate(-50%, 0); }
+      25%  { transform: translate(-52%, -2px); }
+      50%  { transform: translate(-48%, 2px); }
+      75%  { transform: translate(-52%, 2px); }
+      100% { transform: translate(-50%, 0); }
+    }
+
+  
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      from { top: -20px; }
+      to   { top: 100vh; }
+    }
+
+      .emoji {
+      position: absolute;
+      font-size: 28px;
+      animation: fade 3s ease-in-out infinite;
+    }
+
+    @keyframes fade {
+      0%   { opacity: 0; transform: scale(0.8); }
+      50%  { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0; transform: scale(0.8); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+    
+    <img src="https://files.catbox.moe/ntae4k.jpg" class="foto" alt="Foto 1">
+    <img src="https://files.catbox.moe/092nkr.jpg" class="foto" alt="Foto 2">
+    <img src="https://files.catbox.moe/os4vfw.jpg" class="foto" alt="Foto 3">
+
+  
+    <div class="goyang">Selamat Ulang Tahun 🎀✨</div>
+
+  
+    <div class="confetti" style="left:20%; background:#ffb6c1;"></div>
+    <div class="confetti" style="left:40%; background:#ffd700;"></div>
+    <div class="confetti" style="left:60%; background:#87cefa;"></div>
+    <div class="confetti" style="left:80%; background:#98fb98;"></div>
+  </div>
+
+  <script>
+    const emojis = ["🎉","🎂","❤️","⭐","🎈","💖","🍭","🐻"];
+    const container = document.getElementById("container");
+
+  
+    for (let i = 0; i < 25; i++) {
+      const emoji = document.createElement("div");
+      emoji.className = "emoji";
+      emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+  
+      emoji.style.top = Math.random() * 100 + "vh";
+      emoji.style.left = Math.random() * 100 + "vw";
+
+       emoji.style.animationDelay = (Math.random() * 3) + "s";
+
+      container.appendChild(emoji);
+    }
+  </script>
+</body>
+</html>
