@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Playlist Lagu Animasi</title>
+  <style>
+
+body {
+  background: linear-gradient(270deg, pink, cyan, purple);
+  background-size: 600% 600%;
+  animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+    /* Hero section fullscreen */
+    .hero {
+      height: 100vh;
+      display: flex;
+      border-radius: 12px;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #4ef2ff, #ff6fd8);
+      color: white;
+      text-align: center;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero h1 {
+      font-size: 64px;
+      margin: 0;
+      text-shadow: 0 0 20px rgba(255,255,255,0.8);
+      animation: glowText 2s infinite alternate, bounce 3s infinite;
+    }
+    .hero p {
+      font-size: 24px;
+      margin-top: 20px;
+      animation: typing 6s steps(40,end), blink .9s step-end infinite alternate;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #fff;
+    }
+
+    /* Playlist */
+    h2 {
+      text-align: center;
+      margin: 30px 0;
+      color: #333;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .playlist {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      
+      flex-wrap: wrap;
+      padding: 40px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      width: 250px;
+      padding: 16px;
+      text-align: center;
+      transition: transform 0.6s, box-shadow 0.6s;
+      animation: slideUp 1.2s ease forwards;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(#ff6fd8, #4ef2ff, #ff6fd8);
+      animation: rotateGlow 6s linear infinite;
+      z-index: 0;
+      opacity: 0.2;
+    }
+    .card img, .card h3, .card audio {
+      position: relative;
+      z-index: 1;
+    }
+    .card:hover {
+      transform: scale(1.08) rotate(2deg);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      transition: transform 0.6s;
+    }
+    .card:hover img {
+      transform: scale(1.1) rotate(-3deg);
+    }
+    .card h3 {
+      margin: 8px 0;
+      color: #00796b;
+      animation: glowText 2s infinite alternate;
+    }
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    /* Kotak tambahan */
+    .extra-box {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: conic-gradient(#ff6fd8, #4ef2ff, #ff6fd8);
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      animation: slideUp 1.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .extra-box img {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      transition: transform 0.6s;
+      animation: float 4s ease-in-out infinite;
+    }
+    .extra-box img:hover {
+      transform: scale(1.05) rotate(-2deg);
+    }
+    .extra-box .text {
+      flex: 1;
+    }
+    .extra-box h3 {
+      margin-top: 0;
+      color: #ff4081;
+      animation: glowText 2s infinite alternate;
+    }
+    .extra-box p {
+      font-size: 18px;
+      line-height: 1.6;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    /* Animations */
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes slideUp { from {transform: translateY(40px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+    @keyframes rotateGlow { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
+    @keyframes glowText { from {text-shadow: 0 0 6px #4ef2ff;} to {text-shadow: 0 0 20px #ff6fd8;} }
+    @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+    @keyframes typing { from{width:0;} to{width:100%;} }
+    @keyframes blink { 50%{border-color:transparent;} }
+    @keyframes float { 0%{transform:translateY(0);} 50%{transform:translateY(-10px);} 100%{transform:translateY(0);} }
+
+    /* Kotak tambahan */
+    .extra-box2 {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: conic-gradient(#ff6fd8, #4ef2ff, #ff6fd8);
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      animation: slideUp 1.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .extra-box2 img {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      transition: transform 0.6s;
+      animation: float 4s ease-in-out infinite;
+      left: 600px;
+      position: relative;
+    }
+    .extra-box2 img:hover {
+      transform: scale(1.05) rotate(-2deg);
+    }
+    .extra-box2 .text {
+      flex: 1;
+    }
+    .extra-box2 h3 {
+      margin-top: 0;
+      position: relative;
+      left: 100px;
+      color: #ff4081;
+      animation: glowText 2s infinite alternate;
+    }
+    .extra-box2 p {
+      font-size: 18px;
+      position: relative;
+      left: -270px;
+      line-height: 1.6;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    /* Animations */
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes slideUp { from {transform: translateY(40px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+    @keyframes rotateGlow { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
+    @keyframes glowText { from {text-shadow: 0 0 6px #4ef2ff;} to {text-shadow: 0 0 20px #ff6fd8;} }
+    @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+    @keyframes typing { from{width:0;} to{width:100%;} }
+    @keyframes blink { 50%{border-color:transparent;} }
+    @keyframes float { 0%{transform:translateY(0);} 50%{transform:translateY(-10px);} 100%{transform:translateY(0);} }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 999;
+    }
+    .confetti span {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ff6fd8;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% {transform: translateY(-10px) rotate(0deg);}
+      100% {transform: translateY(100vh) rotate(360deg);}
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- Hero section -->
+  <div class="hero">
+    <h1>Kenangan Kita ✨</h1>
+    <p>kangennn kamuuuu</p>
+  </div>
+
+  <h2>Playlist Favorit ✨</h2>
+  <div class="playlist">
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/4/4e/Coldplay_-_Yellow.png" alt="Cover Lagu 1">
+      <h3>Coldplay - Yellow</h3>
+      <audio controls>
+        <source src="lagu1.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/2/2e/Taylor_Swift_-_Love_Story.png" alt="Cover Lagu 2">
+      <h3>Taylor Swift - Love Story</h3>
+      <audio controls>
+        <source src="lagu2.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/5e/Ed_Sheeran_-_Perfect.png" alt="Cover Lagu 3">
+      <h3>Ed Sheeran - Perfect</h3>
+      <audio controls>
+        <source src="lagu3.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- Kotak tambahan -->
+  <div class="extra-box">
+    <img src="https://files.catbox.moe/w5qs56.jpeg" alt="Ilustrasi">
+    <div class="text">
+      <h3>pertama kali ketemu</h3>
+      <p> moment ketika mata pertma kali bertemu, dan dunia saat itu terasa berhenti </p>
+    </div>
+  </div>
+<!-- Kotak tambahan kedua -->
